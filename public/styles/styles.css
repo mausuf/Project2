@@ -1,3 +1,14 @@
-.list-group-item {
-  line-height: 2.5;
+* {
+  font-family: 'Mate SC', serif;
 }
+.splashHeading {
+  font-family: 'Fredericka the Great', cursive;
+}
+.wrapper {
+  margin-top: 5%;
+}
+
+.loginCard {
+  
+}
+
