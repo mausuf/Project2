@@ -1,6 +1,9 @@
 var db = require("../models");
+var passport = require("../config/passport");
 
 module.exports = function(app) {
+  // other api route stuff
+
   // Get all examples
   app.get("/api/examples", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
