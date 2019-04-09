@@ -47,15 +47,6 @@
     </header>
             
             <div class="row text-center">
-                <!-- <div class="col-3">
-                    <div id="about">
-                        <img class="profile-pic" src="../public/assets/default_male.jpg" alt="Patient Pic">
-                        <h2 class="patient-name"><u>Patient Name</u></h2>
-                        <p class="patient-info">Patient basic information</p>
-                        <p class="patient-doctor">Primary Provider</p>
-                        <button id="apt-btn" type="button" class="btn btn-outline-dark">Schedule an appointment</button>
-                    </div>
-                </div> -->
                 
                 <div class="card patientCard" style="width: 18rem;">
                         <img class="card-img-top" src="../public/assets/default_male.jpg" alt="Card image cap">
@@ -79,7 +70,7 @@
                                 Billing
                             </div>
                             <div class="card-body">
-                                <p>Latest billing information</p>
+                                <p id="billing-info">Latest billing information</p>
                             </div>
                         </div>
                     </div>
@@ -103,7 +94,8 @@
                                     Current Medications
                                 </div>
                                 <div class="card-body">
-                                    <li>List of current medication</li>
+                                    <li id="current-meds">List of current medication</li>
+                                    <a href="#" class="btn refill-btn">Order refill</a>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +106,7 @@
                                         Most Recent Visit
                                     </div>
                                     <div class="card-body">
-                                        <p>info about your most recend visit</p>
+                                        <p id="recent-visit-info">info about your most recend visit</p>
                                     </div>
                                 </div>
                             </div>
