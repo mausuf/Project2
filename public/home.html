@@ -1,7 +1,7 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
 <head>
-    <title>patient page</title>
+    <title>Patient Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Linking jQuery -->
@@ -11,7 +11,7 @@
      <!-- Latest complied JavaScript-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
      <!-- Linking Custom CSS -->
-     <link rel="stylesheet" type="text/css" media="screen" href="styles/styles.css" />
+     <link rel="stylesheet" type="text/css" media="screen" href="styles/portal_Styles.css" />
     <!-- Linking icon library-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -28,7 +28,7 @@
 
         <div class="collapse navbar-collapse" id="collapse_target">
 
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav nav-options">
             <li class="nav-item">
                 <a class="nav-link" href="#">WRWMB</a>
             </li>
@@ -45,18 +45,82 @@
         </div>
     </nav> 
     </header>
-
-    <div class="container">
-        <section id="about">
-            <div class="row">
-                <div class="col-3 text-center">
-                        <img src="C:\Users\gaunt\Google Drive\Coding\Avatars/male1.jpg" alt="Patient Picture" style="width:100%">
-                        <h2 id="patient-name"><u>Patient Name</u></h2>
+            
+            <div class="row text-center">
+                <!-- <div class="col-3">
+                    <div id="about">
+                        <img class="profile-pic" src="../public/assets/default_male.jpg" alt="Patient Pic">
+                        <h2 class="patient-name"><u>Patient Name</u></h2>
                         <p class="patient-info">Patient basic information</p>
                         <p class="patient-doctor">Primary Provider</p>
                         <button id="apt-btn" type="button" class="btn btn-outline-dark">Schedule an appointment</button>
+                    </div>
+                </div> -->
+                
+                <div class="card patientCard" style="width: 18rem;">
+                        <img class="card-img-top" src="../public/assets/default_male.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">Patient Name</h5>
+                          <p class="card-text">Patient Basic Info</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item primary-care-dr">Primary Care Provider</li>
+                        </ul>
+                        <div class="card-body">
+                          <a href="#" class="card-link">Schedule an appointment</a>
+                        </div>
+                      </div>
+       
+
+                <div class="col-4">
+                    <div class="billing">
+                        <div class="card recordCard">
+                            <div class="card-header">
+                                Billing
+                            </div>
+                            <div class="card-body">
+                                <p>Latest billing information</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="randomFood">
+                            <div class="card recordCard">
+                                <div class="card-header">
+                                    Random healthy food facts
+                                </div>
+                                <div class="card-body">
+                                    <p>info about a random healthy food</p>
+                                </div>
+                            </div>
+                        </div>
                 </div>
+
+                <div class="col-4">
+                        <div class="medication">
+                            <div class="card recordCard">
+                                <div class="card-header">
+                                    Current Medications
+                                </div>
+                                <div class="card-body">
+                                    <li>List of current medication</li>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="most-recent-visit">
+                                <div class="card recordCard">
+                                    <div class="card-header">
+                                        Most Recent Visit
+                                    </div>
+                                    <div class="card-body">
+                                        <p>info about your most recend visit</p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
             </div>
-        </section>
-    </div>
+
+
+            
 </body>
