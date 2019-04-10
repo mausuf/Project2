@@ -13,9 +13,9 @@ var session = require("express-session");
 var bodyParser = require("body-parser");
 var env = require("dotenv").load();
 
-app.get("/", function(req, res) {
-  res.send("Welcome to Passport with Sequelize");
-});
+// app.get("/", function(req, res) {
+//   res.send("Welcome to Passport with Sequelize");
+// });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
