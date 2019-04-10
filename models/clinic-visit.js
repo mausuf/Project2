@@ -1,52 +1,52 @@
 // Create the visit model to be associated with a patient
 module.exports = function(sequelize, DataTypes) {
-var Visit = sequelize.define("visit", {
-    reason: {
-        type: Sequelize.TEXT,
-        allowNull: false
-    },
-    complaint: {
-        type: Sequelize.TEXT,
-        allowNull: false
-    },
-    symptoms: {
-        general: {
-            type: Sequelize.STRING,
+    var Visit = sequelize.define("visit", {
+        reason: {
+            type: DataTypes.TEXT,
             allowNull: false
         },
-        eyes: {
-            type: Sequelize.STRING,
+        complaint: {
+            type: DataTypes.TEXT,
             allowNull: false
         },
-        earNoseThroat: {
-            type: Sequelize.STRING,
-            allowNull: false
+        symptoms: {
+            general: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            eyes: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            earNoseThroat: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            cardio: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            gastro: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            musculoskeletal: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            skin: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            neuro: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
         },
-        cardio: {
-            type: Sequelize.STRING,
+        vitals: {
+            type: DataTypes.TEXT,
             allowNull: false
-        },
-        gastro: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        musculoskeletal: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        skin: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        neuro: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-    },
-    vitals: {
-        type: Sequelize.TEXT,
-        allowNull: false
-    }
+        }
 });
 
 Visit.associate = function(models) {
