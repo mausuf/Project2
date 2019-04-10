@@ -7,6 +7,28 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+//passport
+var passport = require("./config/passport");
+var session = require("express-session");
+var bodyParser = require("body-parser");
+var env = require("dotenv").load();
+
+app.get("/", function(req, res) {
+  res.send("Welcome to Passport with Sequelize");
+});
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(bodyParser.json());
+
+app.use(express.static("public"));
+
+app.use(session({ secret: "1402", resave: true, saveUninitialized: true})); // session secret
+
+app.use(passport.initialize());
+
+app.use(passport.session()); // persistent login sessions
+
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -20,6 +42,7 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
+
 
 // Routes
 require("./routes/apiRoutes")(app);
