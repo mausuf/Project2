@@ -1,38 +1,25 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
+var bodyParser = require("body-parser");
+var session = require("express-session")
+// Requiring passport as we've configured it
+var passport = require("./config/passport");
 
 var db = require("./models");
 
+var PORT = process.env.PORT || 8080;
+
 var app = express();
-var PORT = process.env.PORT || 3000;
-
-//passport
-var passport = require("./config/passport");
-var session = require("express-session");
-var bodyParser = require("body-parser");
-var env = require("dotenv").load();
-
-app.get("/", function(req, res) {
-  res.send("Welcome to Passport with Sequelize");
-});
-
-app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use(bodyParser.json());
-
-app.use(express.static("public"));
-
-app.use(session({ secret: "1402", resave: true, saveUninitialized: true})); // session secret
-
-app.use(passport.initialize());
-
-app.use(passport.session()); // persistent login sessions
-
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+
+// We need to use sessions to keep track of our user's login status
+app.use(session({secret:"keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Handlebars
 app.engine(
