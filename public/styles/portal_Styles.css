@@ -1,0 +1,58 @@
+body {
+  background-image: url('../assets/health3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+}
+
+#nav-title {
+  margin-right: 20px;
+}
+
+.list-group-item {
+  line-height: 2.5;
+}
+
+#nav-title {
+  color: white;
+}
+
+.patientCard {
+  opacity: 0.95!important;
+  background-color: rgba(0, 0, 0, .9)!important;
+  color: white;
+  margin-top: 35px!important;
+  margin-left: 35px;
+}
+
+.patientCard .card-link {
+  font-weight: 700;
+  color: rgb(46, 126, 231);
+}
+
+.recordCard {
+  opacity: 0.95!important;
+  background-color: rgba(0, 0, 0, 0.9)!important;
+  color: white;
+  margin-top: 35px!important;
+  margin-left: 200px;
+}
+
+.refill-btn {
+  margin-top: 10px;
+  color: white;
+  border-color: white;
+}
+.refill-btn:hover {
+  margin-top: 10px;
+  color: black;
+  background-color: white;
+  border-color: white;
+}
+
+.primary-care-dr {
+  background-color: rgba(0, 0, 0, .1)!important;
+  color: white;
+}
