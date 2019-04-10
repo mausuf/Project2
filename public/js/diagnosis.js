@@ -1,8 +1,6 @@
 // for now, this file is just my working code to call the apimedic diagnosis
 // dependencies
 var unirest = require("unirest");
-var namesAndIDs = [];
-var symptomNames = [];
 // var symptoms;
 // var symptomsInJSON = [];
 
@@ -10,6 +8,8 @@ var symptomNames = [];
 // result.body is a list of 270 symptom object in the form { "ID": 123,"Name":"symptom name"}
 // this function returns symptoms as a list of JSON objects
 function getSymptoms() {
+  var namesAndIDs = [];
+  var symptomNames = [];
   unirest
     .get(
       "https://priaid-symptom-checker-v1.p.rapidapi.com/symptoms?format=json&language=en-gb"
@@ -32,6 +32,8 @@ function getSymptoms() {
     });
 }
 getSymptoms();
+
+module.exports = symptomNames;
 
 // console.log("symptom names: ", symptomNames);
 

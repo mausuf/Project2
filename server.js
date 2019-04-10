@@ -13,17 +13,10 @@ var session = require("express-session");
 var bodyParser = require("body-parser");
 var env = require("dotenv").load();
 
-// app.get("/", function(req, res) {
-//   res.send("Welcome to Passport with Sequelize");
-// });
-
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(bodyParser.json());
 
-app.use(express.static("public"));
-
-app.use(session({ secret: "1402", resave: true, saveUninitialized: true})); // session secret
+app.use(session({ secret: "1402", resave: true, saveUninitialized: true })); // session secret
 
 app.use(passport.initialize());
 
@@ -43,6 +36,9 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+app.get("/", function(req, res) {
+  res.render("main");
+});
 
 // Routes
 require("./routes/apiRoutes")(app);
