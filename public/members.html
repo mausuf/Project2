@@ -1,16 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE <!DOCTYPE html>
+<html>
 <head>
-  <title>Passport Authentication</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
+    <title>Patient Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <!-- Linking Bootstrap -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <!-- Latest complied JavaScript-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+     <!-- Linking Custom CSS -->
+     <link rel="stylesheet" type="text/css" media="screen" href="styles/portal_Styles.css" />
+    <!-- Linking icon library-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
+    <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+        <!--*********************Turn this into hosp logo*****************************-->
+        <span class="navbar-text" id="nav-title"><h3>J & D Hospital</h3></span>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_target">
+           <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapse_target">
+
+        <ul class="nav navbar-nav nav-options">
+            <li class="nav-item">
+                <a class="nav-link" href="#">WRWMB</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Physician</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="#">My Records</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="#">My Visits</a>
+            </li>
+        </ul>
+        </div>
+    </nav> 
+    </header>
+            
+            <div class="row text-center">
+                
+                <div class="card patientCard" style="width: 18rem;">
+                        <img class="card-img-top" src="../public/assets/default_male.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">Patient Name</h5>
+                          <p class="card-text">Patient Basic Info</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item primary-care-dr">Primary Care Provider</li>
+                        </ul>
+                        <div class="card-body">
+                          <a href="#" class="card-link">Schedule an appointment</a>
+                        </div>
+                      </div>
+       
+
+                <div class="col-4">
+                    <div class="billing">
+                        <div class="card recordCard">
+                            <div class="card-header">
+                                Billing
+                            </div>
+                            <div class="card-body">
+                                <p id="billing-info">Latest billing information</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="randomFood">
+                            <div class="card recordCard">
+                                <div class="card-header">
+                                    Random healthy food facts
+                                </div>
+                                <div class="card-body">
+                                    <p>info about a random healthy food</p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="col-4">
+                        <div class="medication">
+                            <div class="card recordCard">
+                                <div class="card-header">
+                                    Current Medications
+                                </div>
+                                <div class="card-body">
+                                    <li id="current-meds">List of current medication</li>
+                                    <a href="#" class="btn refill-btn">Order refill</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="most-recent-visit">
+                                <div class="card recordCard">
+                                    <div class="card-header">
+                                        Most Recent Visit
+                                    </div>
+                                    <div class="card-body">
+                                        <p id="recent-visit-info">info about your most recend visit</p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+
+
+            
+</body>
+
+<!--Logout Button Code For Sequelize Passport  -->
+<!--Integrate this into above html  -->
+<!--  <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/logout">
@@ -18,18 +127,4 @@
       </a>
     </div>
   </div>
-</nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/members.js"></script>
-
-</body>
-
-</html>
+</nav> -->
