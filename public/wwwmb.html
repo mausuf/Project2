@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/styles.css" />
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>WWWMB</title>
+</head>
+<body class="mx-auto">
+    <div class="container row">
+        <!-- input form to add symptoms -->
+        <div class="col-lg-6">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="symptom-search" placeholder="Enter a symptom" aria-label="Symptoms" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" id="add-btn" type="button">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- list of symptoms -->
+        <div class="col-lg-6">
+            <h4 class="text-center">My Symptoms:</h4>
+            <ul>
+                <span id="symptoms-list"></span>
+            </ul>
+        </div>
+
+    </div>
+
+    <!--JQuery and JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/wwwmb.js"></script>
+</body>
+</html>
