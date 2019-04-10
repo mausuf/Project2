@@ -36,9 +36,9 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-app.get("/", function(req, res) {
-  res.render("main");
-});
+// app.get("/", function(req, res) {
+//   res.render("main");
+// });
 
 // Routes
 require("./routes/apiRoutes")(app);
