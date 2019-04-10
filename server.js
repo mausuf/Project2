@@ -2,6 +2,12 @@ require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
+var env = require("dotenv").load();
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use(session({ secret: "1402", resave: true, saveUninitialized: true })); // session secret
 var session = require("express-session")
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
@@ -30,6 +36,9 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+// app.get("/", function(req, res) {
+//   res.render("main");
+// });
 
 // Routes
 require("./routes/apiRoutes")(app);
