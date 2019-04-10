@@ -1,11 +1,5 @@
-// Dependencies
-// ============================================================
-
-var Sequelize = require("sequelize");
-
-var sequelize = require("../config/connection.js");
-
 // Create the visit model to be associated with a patient
+module.exports = function(sequelize, DataTypes) {
 var Visit = sequelize.define("visit", {
     reason: {
         type: Sequelize.TEXT,
@@ -53,4 +47,14 @@ var Visit = sequelize.define("visit", {
         type: Sequelize.TEXT,
         allowNull: false
     }
-})
+});
+
+Visit.associate = function(models) {
+    Visit.belongsTo(models.Patient, {
+        foreignKey: {
+            allowNull: false
+        }
+    });
+}
+return Visit;
+}

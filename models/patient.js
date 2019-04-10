@@ -1,12 +1,6 @@
-// Dependencies
-// ============================================================
-
-var Sequelize = require("sequelize");
-
-var sequelize = require("../config/connection.js");
-
 
 // Create "Patient" model with basic info
+module.exports = function(sequelize, DataTypes) {
 var Patient = sequelize.define("patient", {
     // Indifiduat patient ID
     patientID:{
@@ -64,5 +58,7 @@ var Patient = sequelize.define("patient", {
     meds: {
         type: Sequelize.STRING,
         allowNull: false
-    },
-})
+    }
+});
+return Patient;
+}
