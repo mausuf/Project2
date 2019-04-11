@@ -1,5 +1,4 @@
 // array of symptom names for our autocomplete function to run through
-// DONT FORGET THERE ARE A FEW SYMPTOMS NOT IN HERE BUT ALSO PROBABLY DOESNT MATTER
 $(function() {
   var symptoms = [
     "Abdominal guarding",
@@ -580,7 +579,6 @@ $(function() {
   // diagnose me button should clear userSymptoms
   $("#diagnose").on("click", function(event) {
     event.preventDefault();
-    console.log("clicked");
     var sympIDs = [];
     userSymptoms.forEach(function(s) {
       namesAndIDs.forEach(function(n) {
@@ -589,6 +587,28 @@ $(function() {
         }
       });
     });
-    console.log(sympIDs);
+    getSymptomString(sympIDs);
   });
+
+  function getSymptomString(arr) {
+    var symptomsString = "%5B";
+    for (var i = 0; i < arr.length - 1; i++) {
+      symptomsString += arr[i];
+      symptomsString += "%2C";
+    }
+    symptomsString += arr[arr.length - 1];
+    symptomsString += "%5D";
+    console.log("symptom string: ", symptomsString);
+    getDiagnosis(symptomsString);
+  }
+
+  function getDiagnosis(str) {
+    $.get("/wwwmb/" + str).then(function(data) {
+      if (data.length > 0) {
+        console.log("data \n-------------------\n", data);
+      } else {
+        console.log("girl idk what is wrong with you");
+      }
+    });
+  }
 });
