@@ -1,5 +1,4 @@
 // array of symptom names for our autocomplete function to run through
-// DONT FORGET THERE ARE A FEW SYMPTOMS NOT IN HERE BUT ALSO PROBABLY DOESNT MATTER
 $(function() {
   var symptoms = [
     "Abdominal guarding",
@@ -550,6 +549,8 @@ $(function() {
 
   var userSymptoms = [];
 
+  // hide diagnosis div for ~aesthetics~
+  $("#wwwmb-diag-div").hide();
   // autocomplete handler for our symptom search bar
   $("#symptom-search").autocomplete({
     source: symptoms
@@ -567,7 +568,7 @@ $(function() {
         .trim()
     );
     $("#symptoms-list").append(
-      "<li>" +
+      "<li class='text-left'>" +
         $("#symptom-search")
           .val()
           .trim() +
@@ -580,8 +581,11 @@ $(function() {
   // diagnose me button should clear userSymptoms
   $("#diagnose").on("click", function(event) {
     event.preventDefault();
-    console.log("clicked");
     var sympIDs = [];
+    // we loop through our user generated symptoms list
+    // compare it to our list of symptom objects
+    // and use that to generrate our symptom ID array
+    // that can then be used in our API call
     userSymptoms.forEach(function(s) {
       namesAndIDs.forEach(function(n) {
         if (s === n.Name) {
@@ -589,6 +593,46 @@ $(function() {
         }
       });
     });
-    console.log(sympIDs);
+    getSymptomString(sympIDs);
   });
+
+  // function takes in array of IDs and converts it to
+  // a string that our browser will be able to interpret
+  function getSymptomString(arr) {
+    var symptomsString = "%5B";
+    for (var i = 0; i < arr.length - 1; i++) {
+      symptomsString += arr[i];
+      symptomsString += "%2C";
+    }
+    symptomsString += arr[arr.length - 1];
+    symptomsString += "%5D";
+    console.log("symptom string: ", symptomsString);
+    // then calls the getDiagnosis function and passes our string
+    getDiagnosis(symptomsString);
+  }
+
+  // function takes in string from getSymptomString
+  // get request to retrieve diagnosis
+  // then we need to display this info to the user
+  function getDiagnosis(str) {
+    $.get("/wwwmb/" + str).then(function(data) {
+      // first we need to change the divs visibility
+      $("#wwwmb-diag-div").show();
+      if (data.length > 0) {
+        $("#diag-res-header").text("Potential Diagnoses:");
+        console.log("data \n-------------------\n", data[0].Issue.Name);
+        // okay now we have to start displaying the data
+        var diagListHTML = "";
+        data.forEach(function(d) {
+          diagListHTML += "<li>";
+          diagListHTML += d.Issue.Name;
+          diagListHTML += "</li>";
+        });
+        $("#diag-res-list").html(diagListHTML);
+      } else {
+        $("#diag-res-header").text("No Diseases Found.");
+        console.log("no diseases found");
+      }
+    });
+  }
 });

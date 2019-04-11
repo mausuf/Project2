@@ -3,12 +3,14 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var env = require("dotenv").load();
+var session = require("express-session");
+
+var app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(session({ secret: "1402", resave: true, saveUninitialized: true })); // session secret
-var session = require("express-session")
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 
@@ -16,7 +18,6 @@ var db = require("./models");
 
 var PORT = process.env.PORT || 8080;
 
-var app = express();
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
