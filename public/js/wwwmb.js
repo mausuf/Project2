@@ -580,6 +580,10 @@ $(function() {
   $("#diagnose").on("click", function(event) {
     event.preventDefault();
     var sympIDs = [];
+    // we loop through our user generated symptoms list
+    // compare it to our list of symptom objects
+    // and use that to generrate our symptom ID array
+    // that can then be used in our API call
     userSymptoms.forEach(function(s) {
       namesAndIDs.forEach(function(n) {
         if (s === n.Name) {
@@ -590,6 +594,8 @@ $(function() {
     getSymptomString(sympIDs);
   });
 
+  // function takes in array of IDs and converts it to
+  // a string that our browser will be able to interpret
   function getSymptomString(arr) {
     var symptomsString = "%5B";
     for (var i = 0; i < arr.length - 1; i++) {
@@ -599,9 +605,13 @@ $(function() {
     symptomsString += arr[arr.length - 1];
     symptomsString += "%5D";
     console.log("symptom string: ", symptomsString);
+    // then calls the getDiagnosis function and passes our string
     getDiagnosis(symptomsString);
   }
 
+  // function takes in string from getSymptomString
+  // get request to retrieve diagnosis
+  // then we need to display this info to the user
   function getDiagnosis(str) {
     $.get("/wwwmb/" + str).then(function(data) {
       if (data.length > 0) {
