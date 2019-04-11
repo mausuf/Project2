@@ -549,6 +549,8 @@ $(function() {
 
   var userSymptoms = [];
 
+  // hide diagnosis div for ~aesthetics~
+  $("#wwwmb-diag-div").hide();
   // autocomplete handler for our symptom search bar
   $("#symptom-search").autocomplete({
     source: symptoms
@@ -566,7 +568,7 @@ $(function() {
         .trim()
     );
     $("#symptoms-list").append(
-      "<li>" +
+      "<li class='text-left'>" +
         $("#symptom-search")
           .val()
           .trim() +
@@ -614,10 +616,22 @@ $(function() {
   // then we need to display this info to the user
   function getDiagnosis(str) {
     $.get("/wwwmb/" + str).then(function(data) {
+      // first we need to change the divs visibility
+      $("#wwwmb-diag-div").show();
       if (data.length > 0) {
-        console.log("data \n-------------------\n", data);
+        $("#diag-res-header").text("Potential Diagnoses:");
+        console.log("data \n-------------------\n", data[0].Issue.Name);
+        // okay now we have to start displaying the data
+        var diagListHTML = "";
+        data.forEach(function(d) {
+          diagListHTML += "<li>";
+          diagListHTML += d.Issue.Name;
+          diagListHTML += "</li>";
+        });
+        $("#diag-res-list").html(diagListHTML);
       } else {
-        console.log("girl idk what is wrong with you");
+        $("#diag-res-header").text("No Diseases Found.");
+        console.log("no diseases found");
       }
     });
   }
