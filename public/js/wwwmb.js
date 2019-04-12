@@ -600,7 +600,7 @@ $(function() {
       $("#symptoms-list").append(
         "<li class='text-left'>" +
           s +
-          "<button type='button' class='btn btn-secondary btn-sm remove-btn'>Remove</button></li>"
+          "<button type='button' class='btn btn-danger btn-sm remove-btn'>x</button></li>"
       );
     });
   }
@@ -643,8 +643,7 @@ $(function() {
   $("#diagnoses").on("click", ".diag-item", function(e) {
     // we grab the id of the diagnosis the user clicked
     // and pass it to our function to access the api
-    console.log(e.currentTarget);
-    getDiagnosisInfo(e.currentTarget.id);
+    getDiagnosisInfo(e.currentTarget.id, e.currentTarget);
   });
 
   // function takes in array of IDs and converts it to
@@ -677,6 +676,10 @@ $(function() {
           diagListHTML += "<li class='diag-item' id=" + d.Issue.ID + ">";
           diagListHTML += d.Issue.Name;
           diagListHTML += "</li>";
+          // diagListHTML +=
+          //   "<div class='card card-body'><span id='info" +
+          //   d.Issue.ID +
+          //   "'></span></div>";
         });
         $("#diag-res-list").html(diagListHTML);
       } else {
@@ -688,9 +691,14 @@ $(function() {
 
   // function takes in an id based on user's click
   // get request to retrieve info
-  function getDiagnosisInfo(id) {
+  function getDiagnosisInfo(id, target) {
     $.get("/diagnoses/" + id).then(function(data) {
-      console.log(data);
+      var info = "<div class='card card-body'><strong>Description: </strong>";
+      info += data.DescriptionShort;
+      info += "<br><strong>Treatment: </strong>";
+      info += data.TreatmentDescription;
+      info += "</div>";
+      $(target).append(info);
     });
   }
 });

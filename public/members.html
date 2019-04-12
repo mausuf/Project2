@@ -187,7 +187,7 @@
                     <div>
                         <div class="card recordCard">
                             <div class="card-header">
-                                Add a symptom:
+                                Enter symptoms for a quick diagnosis
                             </div>
                             <div class="card-body">
                                 <div class="input-group mb-3">
@@ -196,26 +196,39 @@
                                         <button class="btn btn-outline-secondary" id="add-btn" type="button">+</button>
                                     </div>
                                 </div>
+                                <div>
+                                    <h6 class="text-center">
+                                        <span id="symp-warning"></span>
+                                      </h6>
+                                      <ul>
+                                        <span id="symptoms-list"></span>
+                                      </ul>
+                                    </div>
+                                  <button class="btn btn-small btn-primary" id="diagnose" data-toggle="modal" data-target="#diag-modal">Diagnose Me!</button>
                             </div>
                           </div>
                       </div>
-
-                            <div>
-                                <div class="card recordCard">
-                                    <div class="card-header">
-                                        Current Symptoms:
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="text-center">
-                                          <span id="symp-warning"></span>
-                                        </h6>
-                                        <ul>
-                                          <span id="symptoms-list"></span>
-                                        </ul>
-                                    <button class="btn btn-small btn-primary" id="diagnose">Diagnose Me!</button>
-                                    </div>
-                                </div>
+<!-- modal to display diagnosis -->
+                      <div class="modal fade" id="diag-modal" tabindex="-1" role="dialog" aria-labelledby="diag-res-header" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="diag-res-header"></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body text-left" id="diagnoses">
+                                <span id="diag-res-list"></span>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                              </div>
                             </div>
+                          </div>
+                        </div>
+<!-- end modal to display diagnosis -->
                     </div>
             </div>
 

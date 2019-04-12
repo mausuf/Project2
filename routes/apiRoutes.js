@@ -64,7 +64,7 @@ module.exports = function(app) {
       .get(
         "https://priaid-symptom-checker-v1.p.rapidapi.com/diagnosis?symptoms=" +
           symptoms +
-          "&gender=male&year_of_birth=1984&language=en-gb"
+          "&gender=female&year_of_birth=1984&language=en-gb"
       )
       .header("X-RapidAPI-Host", "priaid-symptom-checker-v1.p.rapidapi.com")
       .header(
