@@ -1,5 +1,6 @@
 // array of symptom names for our autocomplete function to run through
 $(function() {
+  console.log("linked");
   var symptoms = [
     "Abdominal guarding",
     "Abdominal pain",
@@ -556,26 +557,64 @@ $(function() {
     source: symptoms
   });
 
+  // keyup event to trigger on click with enter
+  $("#symptom-search").keyup(function(event) {
+    if (event.keyCode === 13) {
+      $("#add-btn").click();
+    }
+  });
+
   // listener for "+" button
   // this should append the symptom to userSymptoms array,
   // display symptom on screen
   // clear the search bar
   $("#add-btn").on("click", function(event) {
     event.preventDefault();
-    userSymptoms.push(
-      $("#symptom-search")
-        .val()
-        .trim()
-    );
-    $("#symptoms-list").append(
-      "<li class='text-left'>" +
-        $("#symptom-search")
-          .val()
-          .trim() +
-        "</li>"
-    );
+    var userChoice = $("#symptom-search")
+      .val()
+      .trim();
+
+    // verify symptom has not already been added
+    if (!userSymptoms.includes(userChoice)) {
+      userSymptoms.push(userChoice);
+      // display a lil warning if you are passing more than 3 symptoms
+      if (userSymptoms.length > 3) {
+        $("#symp-warning").text(
+          "* Expect limited results when passing more than 3 symptoms *"
+        );
+      }
+    } else {
+      console.log("duplicate symptom. moving on");
+    }
+    displaySymptomsList(userSymptoms);
     console.log(userSymptoms);
     console.log("-----------------");
+  });
+
+  // function takes in arrayy of user symptoms
+  // displays on screen. triggered if user adds
+  // or removes a symptom
+  function displaySymptomsList(arr) {
+    $("#symptoms-list").text("");
+    arr.forEach(function(s) {
+      $("#symptoms-list").append(
+        "<li class='text-left'>" +
+          s +
+          "<button type='button' class='btn btn-danger btn-sm remove-btn'>x</button></li>"
+      );
+    });
+  }
+
+  // listener for the symptoms remove button
+  $("#symptoms-list-wrapper").on("click", ".remove-btn", function(e) {
+    var target = e.currentTarget.previousSibling.data;
+    userSymptoms.splice(userSymptoms.indexOf(target), 1);
+
+    if (userSymptoms.length < 4) {
+      $("#symp-warning").text("");
+    }
+
+    displaySymptomsList(userSymptoms);
   });
 
   // diagnose me button should clear userSymptoms
@@ -594,6 +633,17 @@ $(function() {
       });
     });
     getSymptomString(sympIDs);
+    // when all is said and done we reset so user can search again
+    userSymptoms = [];
+    sympIDs = [];
+    $("#symptoms-list").text("");
+  });
+
+  // listener for the listed diagnoses if user wants more info
+  $("#diagnoses").on("click", ".diag-item", function(e) {
+    // we grab the id of the diagnosis the user clicked
+    // and pass it to our function to access the api
+    getDiagnosisInfo(e.currentTarget.id, e.currentTarget);
   });
 
   // function takes in array of IDs and converts it to
@@ -620,19 +670,35 @@ $(function() {
       $("#wwwmb-diag-div").show();
       if (data.length > 0) {
         $("#diag-res-header").text("Potential Diagnoses:");
-        console.log("data \n-------------------\n", data[0].Issue.Name);
         // okay now we have to start displaying the data
         var diagListHTML = "";
         data.forEach(function(d) {
-          diagListHTML += "<li>";
+          diagListHTML += "<li class='diag-item' id=" + d.Issue.ID + ">";
           diagListHTML += d.Issue.Name;
           diagListHTML += "</li>";
+          // diagListHTML +=
+          //   "<div class='card card-body'><span id='info" +
+          //   d.Issue.ID +
+          //   "'></span></div>";
         });
         $("#diag-res-list").html(diagListHTML);
       } else {
         $("#diag-res-header").text("No Diseases Found.");
         console.log("no diseases found");
       }
+    });
+  }
+
+  // function takes in an id based on user's click
+  // get request to retrieve info
+  function getDiagnosisInfo(id, target) {
+    $.get("/diagnoses/" + id).then(function(data) {
+      var info = "<div class='card card-body'><strong>Description: </strong>";
+      info += data.DescriptionShort;
+      info += "<br><strong>Treatment: </strong>";
+      info += data.TreatmentDescription;
+      info += "</div>";
+      $(target).append(info);
     });
   }
 });
