@@ -1,5 +1,5 @@
 // Create the visit model to be associated with a patient
-module.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize) {
   var Visit = sequelize.define("visit", {
     // reason: {
     //   type: DataTypes.TEXT,
