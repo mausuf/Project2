@@ -19,32 +19,35 @@
 
 <body>
    <header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-        <!--*********************Turn this into hosp logo*****************************-->
-        <span class="navbar-text" id="nav-title"><h3>J & D Hospital</h3></span>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_target">
-           <span class="navbar-toggler-icon"></span>
+       <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+                {{!-- Turn into hospital logo. --}}
+                <a class="navbar-brand" href="/members">J & D Hospital</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="collapse_target">
-
-        <ul class="nav navbar-nav nav-options">
-            <li class="nav-item">
-                <a class="nav-link" href="/wwwmb">WRWMB</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="wwwmb.html">WWWMB?</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Physician</a>
+                <a class="nav-link disabled" href="#">Physician</a>
+            </li>
             </li>
             <li class="nav-item">
-                <a class="nav-link"  href="#">My Records</a>
+                <a class="nav-link disabled" href="#">My Records</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link"  href="#">My Visits</a>
+                <a class="nav-link disabled" href="#">My Visits</a>
             </li>
         </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
-    </nav> 
+       </nav>
     </header>
   {{{body}}}
 </body>
