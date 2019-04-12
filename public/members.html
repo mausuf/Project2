@@ -22,7 +22,7 @@
     <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
         <!--*********************Turn this into hosp logo*****************************-->
-        <span class="navbar-text" id="nav-title"><h3>J & D Hospital</h3></span>
+        <span class="navbar-text" id="nav-title"><h3>D & J Hospital</h3></span>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_target">
            <span class="navbar-toggler-icon"></span>
@@ -72,11 +72,11 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="log-email">Email Address</label>
-                          <input type="email" class="form-control" id="log-name" placeholder="Email">
+                          <input type="email" class="form-control" id="log-email" placeholder="Email">
                         </div>
                         <div class="form-group col-md-6">
                           <label for="log-dob">Date of Birth</label>
-                          <input type="text" class="form-control" id="log-phone-number" placeholder="DD/MM/YYYY">
+                          <input type="text" class="form-control" id="log-dob" placeholder="DD/MM/YYYY">
                         </div>
                       </div>
                     <div class="form-group">
@@ -90,24 +90,83 @@
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <label for="log-city">City</label>
-                        <input type="text" class="form-control" id="inputCity">
+                        <input type="text" class="form-control" id="log-city">
                       </div>
                       <div class="form-group col-md-4">
                         <label for="log-state">State</label>
                         <select id="log-state" class="form-control">
                           <option selected>Choose...</option>
-                          <option>...</option>
+                          <option>
+                            <option value="">N/A</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DC">District of Columbia</option>
+                            <option value="DE">Delaware</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="IA">Iowa</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MD">Maryland</option>
+                            <option value="ME">Maine</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MT">Montana</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NY">New York</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="PR">Puerto Rico</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VA">Virginia</option>
+                            <option value="VT">Vermont</option>
+                            <option value="WA">Washington</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WY">Wyoming</option>
+                          </option>
                         </select>
                       </div>
                       <div class="form-group col-md-2">
                         <label for="log-zip">Zip</label>
-                        <input type="text" class="form-control" id="inputZip">
+                        <input type="text" class="form-control" id="log-zip">
                       </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="log-gender">Gender</label>
-                          <input type="text" class="form-control" id="log-gender" placeholder="M / F">
+                          <select class="form-control" id="log-gender">
+                            <option>
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                            </option>
+                        </select>
                         </div>
                         <div class="form-group col-md-6">
                           <label for="log-ethnicity">Ethnicity</label>
@@ -120,7 +179,7 @@
                               <input type="text" class="form-control" id="log-dr" placeholder="Primary Physician">
                             </div>
                         </div>
-                    <button type="submit" class="btn btn-primary">submit</button>
+                    <button id="info-submit" type="submit" class="btn btn-primary">submit</button>
                   </form>
             </div>
             <div class="modal-footer">
@@ -135,7 +194,7 @@
             <div class="row text-center">
                 
                 <div class="card patientCard" style="width: 18rem;">
-                        <img class="card-img-top" src="../public/assets/default_male.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="assets/default_male.jpg" alt="Card image cap">
                         <div class="card-body">
                           <h5 id="patient-name" class="card-title">Patient Name</h5>
                           <p id="patient-basic-info" class="card-text">Patient Basic Info</p>
@@ -232,7 +291,12 @@
                     </div>
             </div>
 
+<<<<<<< HEAD
+<script src="js/visitSubmit.js" type="text/javascript"></script>></script>
+=======
 <script src="../public/js/visitSubmit.js"></script>
+<<<<<<< HEAD
+=======
 
 <script>
         $(document).ready(function(){
@@ -243,6 +307,8 @@
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="js/wwwmb.js"></script>
+>>>>>>> 55001790381bf672e24be56338587d20b5c0ca06
+>>>>>>> master
             
 </body>
 

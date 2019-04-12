@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 $("#records-btn").click(function() {
   $("#visit-form").modal("show");
 });

@@ -1,7 +1,7 @@
 // Create "Patient" model with basic info
 module.exports = function(sequelize, DataTypes) {
-  var Patient = sequelize.define("patient", {
-    // Indifiduat patient ID
+  var Patient = sequelize.define("Patient", {
+    // Individual patient ID
     patientID: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -30,10 +30,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       unique: true,
       validate: {
-        len: {
-          args: [6, 128],
-          msg: "Email address must be between 6 and 128 characters in length"
-        },
         isEmail: {
           msg: "Email address must be valid"
         }
@@ -59,5 +55,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
+
+  Patient.associate = function(models) {
+    Patient.hasMany(models.Visit, {
+      onDelete: "cascade"
+    });
+  };
+
   return Patient;
 };
