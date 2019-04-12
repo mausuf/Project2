@@ -35,7 +35,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Physician</a>
             </li>
-            <li class="nav-item">
+            <li id="records-btn" class="nav-item">
                 <a class="nav-link"  href="#">My Records</a>
             </li>
             <li class="nav-item">
@@ -45,17 +45,100 @@
         </div>
     </nav> 
     </header>
+<!----------------------------------------------- Modal for submitting visit info ---------------------------->
+    <div class="modal fade" id="visit-form" tabindex="-1" role="dialog" aria-labelledby="visit-formLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="visit-formLabel">Submit New Patient Information</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="log-name">Name</label>
+                        <input type="text" class="form-control" id="log-name" placeholder="Name">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="log-phone-number">Phone Number</label>
+                        <input type="text" class="form-control" id="log-phone-number" placeholder="Phone Number">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="log-email">Email Address</label>
+                          <input type="email" class="form-control" id="log-name" placeholder="Email">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="log-dob">Date of Birth</label>
+                          <input type="text" class="form-control" id="log-phone-number" placeholder="DD/MM/YYYY">
+                        </div>
+                      </div>
+                    <div class="form-group">
+                      <label for="log-address">Address</label>
+                      <input type="text" class="form-control" id="log-address" placeholder="1234 Main St">
+                    </div>
+                    <div class="form-group">
+                      <label for="log-address2">Address 2</label>
+                      <input type="text" class="form-control" id="log-address2" placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="log-city">City</label>
+                        <input type="text" class="form-control" id="inputCity">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="log-state">State</label>
+                        <select id="log-state" class="form-control">
+                          <option selected>Choose...</option>
+                          <option>...</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="log-zip">Zip</label>
+                        <input type="text" class="form-control" id="inputZip">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="log-gender">Gender</label>
+                          <input type="text" class="form-control" id="log-gender" placeholder="M / F">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="log-ethnicity">Ethnicity</label>
+                          <input type="text" class="form-control" id="log-ethnicity" placeholder="Ethnicity">
+                        </div>
+                    </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="log-dr">Primary Physician</label>
+                              <input type="text" class="form-control" id="log-dr" placeholder="Primary Physician">
+                            </div>
+                        </div>
+                    <button type="submit" class="btn btn-primary">submit</button>
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+<!---------------------------------------------- End of visit Modal --------------------------------------->
             
             <div class="row text-center">
                 
                 <div class="card patientCard" style="width: 18rem;">
                         <img class="card-img-top" src="../public/assets/default_male.jpg" alt="Card image cap">
                         <div class="card-body">
-                          <h5 class="card-title">Patient Name</h5>
-                          <p class="card-text">Patient Basic Info</p>
+                          <h5 id="patient-name" class="card-title">Patient Name</h5>
+                          <p id="patient-basic-info" class="card-text">Patient Basic Info</p>
                         </div>
                         <ul class="list-group list-group-flush">
-                          <li class="list-group-item primary-care-dr">Primary Care Provider</li>
+                          <li id="primary-dr" class="list-group-item primary-care-dr">Primary Provider</li>
                         </ul>
                         <div class="card-body">
                           <a href="#" class="card-link">Schedule an appointment</a>
@@ -113,6 +196,11 @@
                     </div>
             </div>
 
-
+<script src="../public/js/visitSubmit.js"></script>
+<script>
+        $(document).ready(function(){
+            startSubmitScreen();
+        });
+</script>
             
 </body>
