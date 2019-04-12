@@ -2,6 +2,7 @@ $("#records-btn").click(function() {
   $("#visit-form").modal("show");
 });
 
+<<<<<<< HEAD
 $("#info-submit").click(function() {
   var name = $("#log-name")
     .val()
@@ -42,3 +43,8 @@ $("#info-submit").click(function() {
 });
 
 
+=======
+$("#wwwmb-btn").click(function() {
+  $("#wwwmb-form").modal("show");
+});
+>>>>>>> 55001790381bf672e24be56338587d20b5c0ca06

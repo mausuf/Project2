@@ -8,6 +8,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <!-- Linking Bootstrap -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- link for autocomplete styling -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet"/>
      <!-- Latest complied JavaScript-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
      <!-- Linking Custom CSS -->
@@ -29,8 +31,8 @@
         <div class="collapse navbar-collapse" id="collapse_target">
 
         <ul class="nav navbar-nav nav-options">
-            <li class="nav-item">
-                <a class="nav-link" href="wwwmb.html">WRWMB</a>
+            <li id="wwwmb-btn" class="nav-item">
+                <a class="nav-link" href="#">WRWMB</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Physician</a>
@@ -187,7 +189,8 @@
         </div>
       </div>
 <!---------------------------------------------- End of visit Modal --------------------------------------->
-            
+
+
             <div class="row text-center">
                 
                 <div class="card patientCard" style="width: 18rem;">
@@ -203,7 +206,6 @@
                           <a href="#" class="card-link">Schedule an appointment</a>
                         </div>
                       </div>
-       
 
                 <div class="col-4">
                     <div class="billing">
@@ -217,45 +219,92 @@
                         </div>
                     </div>
 
-                    <div class="randomFood">
-                            <div class="card recordCard">
-                                <div class="card-header">
-                                    Random healthy food facts
-                                </div>
-                                <div class="card-body">
-                                    <p>info about a random healthy food</p>
-                                </div>
+                    <div class="medication">
+                        <div class="card recordCard">
+                            <div class="card-header">
+                                Current Medications
+                            </div>
+                            <div class="card-body">
+                                <li id="current-meds">List of current medication</li>
+                                <a href="#" class="btn refill-btn">Order refill</a>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="most-recent-visit">
+                        <div class="card recordCard">
+                            <div class="card-header">
+                                Most Recent Visit
+                            </div>
+                            <div class="card-body">
+                                <p id="recent-visit-info">info about your most recend visit</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
                 <div class="col-4">
-                        <div class="medication">
-                            <div class="card recordCard">
-                                <div class="card-header">
-                                    Current Medications
-                                </div>
-                                <div class="card-body">
-                                    <li id="current-meds">List of current medication</li>
-                                    <a href="#" class="btn refill-btn">Order refill</a>
-                                </div>
+                    <div>
+                        <div class="card recordCard">
+                            <div class="card-header">
+                                Enter symptoms for a quick diagnosis
                             </div>
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <input type="text" onfocus="this.value=''" class="form-control autocomplete" id="symptom-search" placeholder="Enter a symptom" aria-label="Symptoms" aria-describedby="basic-addon2">
+                                    <div class="input-group-append autocomplete">
+                                        <button class="btn btn-outline-secondary" id="add-btn" type="button">+</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h6 class="text-center">
+                                        <span id="symp-warning"></span>
+                                      </h6>
+                                      <ul>
+                                        <span id="symptoms-list"></span>
+                                      </ul>
+                                    </div>
+                                  <button class="btn btn-small btn-primary" id="diagnose" data-toggle="modal" data-target="#diag-modal">Diagnose Me!</button>
+                            </div>
+                          </div>
+                      </div>
+<!-- modal to display diagnosis -->
+                      <div class="modal fade" id="diag-modal" tabindex="-1" role="dialog" aria-labelledby="diag-res-header" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="diag-res-header"></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body text-left" id="diagnoses">
+                                <span id="diag-res-list"></span>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-
-                        <div class="most-recent-visit">
-                                <div class="card recordCard">
-                                    <div class="card-header">
-                                        Most Recent Visit
-                                    </div>
-                                    <div class="card-body">
-                                        <p id="recent-visit-info">info about your most recend visit</p>
-                                    </div>
-                                </div>
-                            </div>
+<!-- end modal to display diagnosis -->
                     </div>
             </div>
 
 <script src="../public/js/visitSubmit.js"></script>
+<<<<<<< HEAD
+=======
+
+<script>
+        $(document).ready(function(){
+            startSubmitScreen();
+        });
+</script>
+
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="js/wwwmb.js"></script>
+>>>>>>> 55001790381bf672e24be56338587d20b5c0ca06
             
 </body>
 
