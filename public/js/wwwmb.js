@@ -556,26 +556,64 @@ $(function() {
     source: symptoms
   });
 
+  // keyup event to trigger on click with enter
+  $("#symptom-search").keyup(function(event) {
+    if (event.keyCode === 13) {
+      $("#add-btn").click();
+    }
+  });
+
   // listener for "+" button
   // this should append the symptom to userSymptoms array,
   // display symptom on screen
   // clear the search bar
   $("#add-btn").on("click", function(event) {
     event.preventDefault();
-    userSymptoms.push(
-      $("#symptom-search")
-        .val()
-        .trim()
-    );
-    $("#symptoms-list").append(
-      "<li class='text-left'>" +
-        $("#symptom-search")
-          .val()
-          .trim() +
-        "</li>"
-    );
+    var userChoice = $("#symptom-search")
+      .val()
+      .trim();
+
+    // verify symptom has not already been added
+    if (!userSymptoms.includes(userChoice)) {
+      userSymptoms.push(userChoice);
+      // display a lil warning if you are passing more than 3 symptoms
+      if (userSymptoms.length > 3) {
+        $("#symp-warning").text(
+          "* Expect limited results when passing more than 3 symptoms *"
+        );
+      }
+    } else {
+      console.log("duplicate symptom. moving on");
+    }
+    displaySymptomsList(userSymptoms);
     console.log(userSymptoms);
     console.log("-----------------");
+  });
+
+  // function takes in arrayy of user symptoms
+  // displays on screen. triggered if user adds
+  // or removes a symptom
+  function displaySymptomsList(arr) {
+    $("#symptoms-list").text("");
+    arr.forEach(function(s) {
+      $("#symptoms-list").append(
+        "<li class='text-left'>" +
+          s +
+          "<button type='button' class='btn btn-secondary btn-sm remove-btn'>Remove</button></li>"
+      );
+    });
+  }
+
+  // listener for the symptoms remove button
+  $("#symptoms-list-wrapper").on("click", ".remove-btn", function(e) {
+    var target = e.currentTarget.previousSibling.data;
+    userSymptoms.splice(userSymptoms.indexOf(target), 1);
+
+    if (userSymptoms.length < 4) {
+      $("#symp-warning").text("");
+    }
+
+    displaySymptomsList(userSymptoms);
   });
 
   // diagnose me button should clear userSymptoms
@@ -594,6 +632,10 @@ $(function() {
       });
     });
     getSymptomString(sympIDs);
+    // when all is said and done we reset so user can search again
+    userSymptoms = [];
+    sympIDs = [];
+    $("#symptoms-list").text("");
   });
 
   // function takes in array of IDs and converts it to

@@ -21,12 +21,15 @@ body {
 
 .wwwmb-wrapper {
     margin: 0 auto;
-    padding: 15px;
-    opacity: 0.95!important;
-    background-color: rgba(0, 0, 0, 0.9)!important;
-    color: white;
     margin-top: 35px!important;
   } 
+
+  .wwwmb-form {
+    background-color: rgba(0, 0, 0, 0.9)!important;
+    color: white;
+    padding: 15px;
+    opacity: 0.95!important;
+  }
   
   #diag-res-header-div{
     width: 100%;

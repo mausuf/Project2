@@ -7,6 +7,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <!-- Linking Bootstrap -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <!-- link for autocomplete styling -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet"/>
      <!-- Latest complied JavaScript-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
      <!-- Linking Custom CSS -->
@@ -48,18 +50,19 @@
     <div class="container">
         <div class="row text-center wwwmb-wrapper">
             <!-- input form to add symptoms -->
-            <div class="col-lg-6 wwwmb-form">
+            <div class="col-lg-6 wwwmb-form" id="symptom-search-div">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="symptom-search" placeholder="Enter a symptom" aria-label="Symptoms" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
+                    <input type="text" onfocus="this.value=''" class="form-control autocomplete" id="symptom-search" placeholder="Enter a symptom" aria-label="Symptoms" aria-describedby="basic-addon2">
+                    <div class="input-group-append autocomplete">
                         <button class="btn btn-outline-secondary" id="add-btn" type="button">+</button>
                     </div>
                 </div>
             </div>
 
             <!-- list of symptoms -->
-            <div class="col-lg-6 wwwmb-form">
+            <div class="col-lg-6 wwwmb-form" id="symptoms-list-wrapper">
                 <h4 class="text-center">My Symptoms:</h4>
+                <h6 class="text-center"><span id="symp-warning"></span></h6>
                 <ul>
                     <span id="symptoms-list"></span>
                 </ul>
@@ -68,7 +71,7 @@
 
         </div>
 
-        <div class="row wwwmb-wrapper" id="wwwmb-diag-div">
+        <div class="row wwwmb-form" id="wwwmb-diag-div">
             <div class="row text-center" id="diag-res-header-div">
                 <h4 style="margin:0 auto"><span id="diag-res-header"></span></h4>
             </div>

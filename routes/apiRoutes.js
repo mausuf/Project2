@@ -66,7 +66,6 @@ module.exports = function(app) {
           symptoms +
           "&gender=male&year_of_birth=1984&language=en-gb"
       )
-      .field("symptoms", 10)
       .header("X-RapidAPI-Host", "priaid-symptom-checker-v1.p.rapidapi.com")
       .header(
         "X-RapidAPI-Key",
