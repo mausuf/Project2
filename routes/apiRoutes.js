@@ -78,4 +78,25 @@ module.exports = function(app) {
         res.send(result.body);
       });
   });
+
+  // routing to gather diagnosis info
+  app.get("/diagnoses/:diag", function(req, res) {
+    var diagID = req.params.diag;
+
+    unirest
+      .get(
+        "https://rapidapi.p.rapidapi.com/issues/" +
+          diagID +
+          "/info?language=en-gb"
+      )
+      .header("X-RapidAPI-Host", "priaid-symptom-checker-v1.p.rapidapi.com")
+      .header(
+        "X-RapidAPI-Key",
+        "GsGANnsOnXmshJzoa5dUUE3jZzqBp1b9PSWjsnQpFCRrO2j9cY"
+      )
+      .end(function(result) {
+        console.log(result.body);
+        res.send(result.body);
+      });
+  });
 };

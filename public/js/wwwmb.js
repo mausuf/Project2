@@ -638,6 +638,14 @@ $(function() {
     $("#symptoms-list").text("");
   });
 
+  // listener for the listed diagnoses if user wants more info
+  $("#diagnoses").on("click", ".diag-item", function(e) {
+    // we grab the id of the diagnosis the user clicked
+    // and pass it to our function to access the api
+    console.log(e.currentTarget);
+    getDiagnosisInfo(e.currentTarget.id);
+  });
+
   // function takes in array of IDs and converts it to
   // a string that our browser will be able to interpret
   function getSymptomString(arr) {
@@ -662,11 +670,10 @@ $(function() {
       $("#wwwmb-diag-div").show();
       if (data.length > 0) {
         $("#diag-res-header").text("Potential Diagnoses:");
-        console.log("data \n-------------------\n", data[0].Issue.Name);
         // okay now we have to start displaying the data
         var diagListHTML = "";
         data.forEach(function(d) {
-          diagListHTML += "<li>";
+          diagListHTML += "<li class='diag-item' id=" + d.Issue.ID + ">";
           diagListHTML += d.Issue.Name;
           diagListHTML += "</li>";
         });
@@ -675,6 +682,14 @@ $(function() {
         $("#diag-res-header").text("No Diseases Found.");
         console.log("no diseases found");
       }
+    });
+  }
+
+  // function takes in an id based on user's click
+  // get request to retrieve info
+  function getDiagnosisInfo(id) {
+    $.get("/diagnoses/" + id).then(function(data) {
+      console.log(data);
     });
   }
 });

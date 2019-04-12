@@ -31,6 +31,11 @@ body {
     opacity: 0.95!important;
   }
   
-  #diag-res-header-div{
+  #diag-res-header-div {
     width: 100%;
+  }
+
+  #diag-res-list {
+    cursor:pointer;
+    text-decoration: underline;
   }
