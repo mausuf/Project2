@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    symptoms: {
+    symptom: {
       general: {
         type: DataTypes.STRING,
         allowNull: false

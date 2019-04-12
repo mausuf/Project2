@@ -1,5 +1,6 @@
 // array of symptom names for our autocomplete function to run through
 $(function() {
+  console.log("linked");
   var symptoms = [
     "Abdominal guarding",
     "Abdominal pain",
