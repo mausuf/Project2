@@ -12,7 +12,7 @@ When you're filling ill, quickly get a rough diagnosis and make an appointment w
 - [Cole Smith](https://github.com/el0c)
 
 ## Demo
-- [Click here to see our website in action.](https://jdhospital.herokuapp.com/)
+- [Click here to see our website in action.](https://peaceful-cove-62787.herokuapp.com/)
 
 ## Technologies Used
 - [x] Node, Handblebars, Express
