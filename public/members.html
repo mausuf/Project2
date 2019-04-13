@@ -23,7 +23,6 @@
 
 <body>
     <header>
-    <div class="row text-center">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
             <!-- Turn into hospital logo. -->
             <a class="navbar-brand" href="/members">J & D Hospital</a>
@@ -48,7 +47,7 @@
         </li>
     </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" id="symptom-search" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
@@ -297,8 +296,8 @@
 <!-- end modal to display diagnosis -->
                     </div>
             </div>
-
-           
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/wwwmb.js"></script> 
 </body>
 
 <!--Logout Button Code For Sequelize Passport  -->
