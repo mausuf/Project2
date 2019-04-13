@@ -1,10 +1,36 @@
+* {
+  font-family: 'Mate SC', serif;
+}
+
 body {
   background-image: url('../assets/health3.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+}
+
+#rowtextcenter {
+  width: 100%;
+  height: 100%;
+}
+
+h3 {
+  color: rgb(0, 174, 255)!important;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 20px;
+}
+
+
+.card-header {  
+  font-family: 'Fredericka the Great', cursive;
+  color: rgb(167, 227, 255)!important;
+}
+
+#patient-name {  
+  font-family: 'Fredericka the Great', cursive;
+  color: rgb(167, 227, 255)!important;
 }
 
 #nav-title {
@@ -41,12 +67,12 @@ body {
 }
 
 .refill-btn {
-  margin-top: 10px;
+  margin-top: 5px;
   color: white;
   border-color: white;
 }
 .refill-btn:hover {
-  margin-top: 10px;
+  margin-top: 5px;
   color: black;
   background-color: white;
   border-color: white;
