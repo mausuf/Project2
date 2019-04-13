@@ -21,7 +21,7 @@ body {
 }
 
 h3 {
-  color: rgb(0, 174, 255)!important;
+  color:  gray!important;
   font-family: 'Libre Franklin', sans-serif;
   font-size: 26px;
   font-weight: 900;
@@ -29,13 +29,13 @@ h3 {
 
 
 .card-header {  
-  font-family: 'Fredericka the Great', cursive;
-  color: rgb(167, 227, 255)!important;
+  font-family: 'Libre Franklin', sans-serif;
+  color:  gray!important;
 }
 
 #patient-name {  
-  font-family: 'Fredericka the Great', cursive;
-  color: rgb(167, 227, 255)!important;
+  font-family: 'Libre Franklin', sans-serif;
+  color:  gray!important;
 }
 
 #nav-title {
@@ -54,7 +54,7 @@ h3 {
 }
 
 #nav-title {
-  color: white;
+  color:  gray!important;
 }
 
 .patientCard {
@@ -62,7 +62,7 @@ h3 {
   /* background-color: rgba(0, 0, 0, .9)!important; */
   background-color: #F5F7FF !important;
   
-  color: white;
+  color:  gray!important;
   margin-top: 35px!important;
   margin-left: 35px;
 }
