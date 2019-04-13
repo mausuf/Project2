@@ -600,13 +600,13 @@ $(function() {
       $("#symptoms-list").append(
         "<li class='text-left'>" +
           s +
-          "<button type='button' class='btn btn-danger btn-sm remove-btn'>x</button></li>"
+          "<button type='button' class='close remove-btn' aria-label='Close'><span aria-hidden='true'>&times;</span></button>"
       );
     });
   }
 
   // listener for the symptoms remove button
-  $("#symptoms-list-wrapper").on("click", ".remove-btn", function(e) {
+  $("#symptoms-list").on("click", ".remove-btn", function(e) {
     var target = e.currentTarget.previousSibling.data;
     userSymptoms.splice(userSymptoms.indexOf(target), 1);
 

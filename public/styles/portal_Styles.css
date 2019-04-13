@@ -64,7 +64,7 @@ h3 {
   
   color:  gray!important;
   margin-top: 35px!important;
-  margin-left: 35px;
+  /* margin-left: 35px; */
 }
 
 .patientCard .card-link {
@@ -80,7 +80,7 @@ h3 {
   /* color: white; */
   color: grey!important;
   margin-top: 35px!important;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   width: 100%!important;
 }
 
