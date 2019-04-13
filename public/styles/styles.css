@@ -15,11 +15,22 @@
   /* ------------------------------- */
 
   
-  .loginCard, .signupCard {
+  .loginCard {
     opacity: 0.98!important;
     /* background-color: rgb(132, 216, 255)!important; */
     margin-top: 100px!important;
     background-color: #F5F7FF;
+  }
+
+  .signupCard {
+    margin-top: 100px!important;
+    background-color: #F5F7FF;
+    opacity: 0.98!important;
+    padding: 0px!important;
+  }
+
+  .signupRow {
+    margin-top: -100px!important;
   }
 
   *{
