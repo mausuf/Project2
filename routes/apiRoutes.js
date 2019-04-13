@@ -2,7 +2,6 @@
 var db = require("../models");
 var passport = require("../config/passport");
 var unirest = require("unirest");
-var keys = require("./keys");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -67,7 +66,10 @@ module.exports = function(app) {
           "&gender=female&year_of_birth=1984&language=en-gb"
       )
       .header("X-RapidAPI-Host", "priaid-symptom-checker-v1.p.rapidapi.com")
-      .header("X-RapidAPI-Key", keys.medic.id)
+      .header(
+        "X-RapidAPI-Key",
+        "GsGANnsOnXmshJzoa5dUUE3jZzqBp1b9PSWjsnQpFCRrO2j9cY"
+      )
       .end(function(result) {
         // result.body is an array of issue objects (or diagnoses)
         // we send that back to our wwwmn.js file and properly display information to the user
@@ -86,7 +88,10 @@ module.exports = function(app) {
           "/info?language=en-gb"
       )
       .header("X-RapidAPI-Host", "priaid-symptom-checker-v1.p.rapidapi.com")
-      .header("X-RapidAPI-Key", keys.medic.id)
+      .header(
+        "X-RapidAPI-Key",
+        "GsGANnsOnXmshJzoa5dUUE3jZzqBp1b9PSWjsnQpFCRrO2j9cY"
+      )
       .end(function(result) {
         res.send(result.body);
       });
