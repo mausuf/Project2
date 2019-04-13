@@ -1,6 +1,6 @@
 *{
   font-family: 'Libre Franklin', sans-serif;
-  font-size: 19px;
+  font-size: 18px;
   margin:0;
   padding: 0;
   font-weight: 1000!important;
@@ -22,8 +22,9 @@ body {
 
 h3 {
   color: rgb(0, 174, 255)!important;
-  font-family: 'Fredericka the Great', cursive;
-  font-size: 20px;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 26px;
+  font-weight: 900;
 }
 
 
@@ -39,6 +40,7 @@ h3 {
 
 #nav-title {
   margin-right: 20px;
+  
 }
 
 .navbar, .navbar-text, .nav-link {
