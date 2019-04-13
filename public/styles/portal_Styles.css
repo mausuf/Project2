@@ -1,5 +1,13 @@
+*{
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 19px;
+  margin:0;
+  padding: 0;
+  font-weight: 1000!important;
+}
+
 body {
-  background-image: url('../assets/health3.jpg');
+  background-image: url('../assets/med2.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -9,6 +17,12 @@ body {
 
 #nav-title {
   margin-right: 20px;
+}
+
+.navbar, .navbar-text, .nav-link {
+  background-color: #F5F7FF!important;
+  color: gray!important;
+
 }
 
 .list-group-item {
@@ -21,7 +35,9 @@ body {
 
 .patientCard {
   opacity: 0.95!important;
-  background-color: rgba(0, 0, 0, .9)!important;
+  /* background-color: rgba(0, 0, 0, .9)!important; */
+  background-color: #F5F7FF !important;
+  
   color: white;
   margin-top: 35px!important;
   margin-left: 35px;
@@ -29,32 +45,39 @@ body {
 
 .patientCard .card-link {
   font-weight: 700;
-  color: rgb(46, 126, 231);
+  /* color: rgb(46, 126, 231); */
+  color: grey!important;
 }
 
 .recordCard {
   opacity: 0.95!important;
-  background-color: rgba(0, 0, 0, 0.9)!important;
-  color: white;
+  /* background-color: rgba(0, 0, 0, 0.9)!important; */
+  background-color: #F5F7FF !important;
+  /* color: white; */
+  color: grey!important;
   margin-top: 35px!important;
-  margin-left: 200px;
+  margin-left: 20px;
+  width: 100%!important;
 }
 
 .refill-btn {
   margin-top: 10px;
-  color: white;
+  /* color: white; */
+  color: grey!important;
   border-color: white;
 }
 .refill-btn:hover {
   margin-top: 10px;
-  color: black;
+  /* color: black; */
+  color: grey!important;
   background-color: white;
   border-color: white;
 }
 
 .primary-care-dr {
   background-color: rgba(0, 0, 0, .1)!important;
-  color: white;
+  /* color: white; */
+  color: grey!important;
 }
 
 .diag-item {
