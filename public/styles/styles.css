@@ -1,96 +1,117 @@
 * {
-  font-family: 'Mate SC', serif;
-}
-.splashHeading {
-  font-family: 'Fredericka the Great', cursive;
-  font-size: 48px;
-}
-.wrapper {
-  margin-top: 5%;
-}
+    font-family: 'Mate SC', serif;
+  }
+  .splashHeading {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 48px;
+  }
+  .wrapper {
+    margin-top: 5%;
+  }
+  
+  .loginCard, .signupCard {
+    opacity: 0.95!important;
+    margin-top: 100px!important;
+  }
 
-.loginCard, .signupCard {
-  opacity: 0.95!important;
-  background-color: rgb(132, 216, 255)!important;
-  margin-top: 100px!important;
-}
+  .signupCard {
+    background-color: rgb(8, 83, 117)!important;
+    color: rgb(132, 216, 255)!important;
 
-/* ------------------------------- */
-/* Splash Screen Background Slides */
-/* ------------------------------- */
-*{
-  margin:0;
-  padding: 0;
-}
-.load{
-  animation: slide 0.5s;
-}
-.slider{
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 100vh;
-  animation: slide 20s infinite;
-  margin-top: -70px;
-}
+  }
 
-.principal h1{
-  font-size: 70px;
-  margin-bottom: 20px; 
-}
+  .btn-default {
+    background-color: rgb(132, 216, 255)!important;
+  }
 
-/* .content{
-  color: #fff;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-} */
-/* .principal{
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-  position: absolute;
-  letter-spacing: 5px;
-  text-align: center;
-} */
+  #loginb {
+    color: rgb(132, 216, 255)!important;
+    background-color: rgb(8, 83, 117)!important;
+  }
 
-@keyframes slide{
-  0%{
-      background-image: url('../assets/health1.jpg');
+  #logincard {
+    background-color: rgb(132, 216, 255)!important;
+    color: rgb(8, 83, 117)!important;
   }
-  20%{
-      background-image: url('../assets/health1.jpg');
-  }
-  20.01%{
-      background-image: url('../assets/health2.jpg');
-  }
-  40%{
-      background-image: url('../assets/health2.jpg');
-  }
-  40.01%{
-      background-image: url('../assets/health3.jpg');
-  }
-  60%{
-      background-image: url('../assets/health3.jpg');
-  }
-  60.01%{
-      background-image: url('../assets/health4.jpg');
-  }
-  80%{
-      background-image: url('../assets/health4.jpg');
-  }
-  80.01%{
-      background-image: url('../assets/health5.png');
-  }
-  100%{
-      background-image: url('../assets/health5.png');
-  }
-}
-/* ----------------------------------- */
-/* End Splash Screen Background Slides */
-/* ----------------------------------- */
 
-/* ----------------------------------- */
-/* WWWMB Styles                        */
-/* ----------------------------------- */
+
+  
+  /* ------------------------------- */
+  /* Splash Screen Background Slides */
+  /* ------------------------------- */
+  *{
+    margin:0;
+    padding: 0;
+  }
+  .load{
+    animation: slide 0.5s;
+  }
+  .slider{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    animation: slide 20s infinite;
+    margin-top: -70px;
+  }
+  
+  .principal h1{
+    font-size: 70px;
+    margin-bottom: 20px; 
+  }
+  
+  /* .content{
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+  } */
+  /* .principal{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    letter-spacing: 5px;
+    text-align: center;
+  } */
+  
+  @keyframes slide{
+    0%{
+        background-image: url('../assets/health1.jpg');
+    }
+    20%{
+        background-image: url('../assets/health1.jpg');
+    }
+    20.01%{
+        background-image: url('../assets/health2.jpg');
+    }
+    40%{
+        background-image: url('../assets/health2.jpg');
+    }
+    40.01%{
+        background-image: url('../assets/health3.jpg');
+    }
+    60%{
+        background-image: url('../assets/health3.jpg');
+    }
+    60.01%{
+        background-image: url('../assets/health4.jpg');
+    }
+    80%{
+        background-image: url('../assets/health4.jpg');
+    }
+    80.01%{
+        background-image: url('../assets/health5.png');
+    }
+    100%{
+        background-image: url('../assets/health5.png');
+    }
+  }
+  /* ----------------------------------- */
+  /* End Splash Screen Background Slides */
+  /* ----------------------------------- */
+  
+  /* ----------------------------------- */
+  /* WWWMB Styles                        */
+  /* ----------------------------------- */
