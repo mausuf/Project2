@@ -193,6 +193,27 @@
       </div>
 <!---------------------------------------------- End of visit Modal --------------------------------------->
 
+<!-- modal to display diagnosis -->
+<div class="modal fade" id="diag-modal" tabindex="-1" role="dialog" aria-labelledby="diag-res-header" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="diag-res-header"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-left" id="diagnoses">
+        <span id="diag-res-list"></span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end modal to display diagnosis -->
 
             <div class="row text-center" id="rowtextcenter">
                 
@@ -208,7 +229,7 @@
                         <div class="card-body">
                           <a href="#" class="card-link">Schedule an appointment</a>
                         </div>
-                      </div>
+                </div>
 
                 <div class="col-4">
                     <div class="billing">
@@ -270,28 +291,7 @@
                             </div>
                           </div>
                       </div>
-<!-- modal to display diagnosis -->
-                      <div class="modal fade" id="diag-modal" tabindex="-1" role="dialog" aria-labelledby="diag-res-header" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="diag-res-header"></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body text-left" id="diagnoses">
-                                <span id="diag-res-list"></span>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-<!-- end modal to display diagnosis -->
-                    </div>
+                  </div>
             </div>
 
             <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
